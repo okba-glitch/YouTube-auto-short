@@ -1,0 +1,95 @@
+name: Generate & Upload Coding Tutorial
+
+# تشغيل تلقائي كل 12 ساعة (00:00 و 12:00 UTC)
+on:
+  schedule:
+    - cron: '0 */12 * * *'
+  # تشغيل يدوي من تبويب Actions
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Tutorial topic (leave empty for random)'
+        required: false
+        default: ''
+
+jobs:
+  generate_tutorial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg piper
+
+      - name: Install Python dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Configure environment
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          cat > .env << EOF
+          GROQ_API_KEY=$GROQ_API_KEY
+          YOUTUBE_CLIENT_ID=$YOUTUBE_CLIENT_ID
+          YOUTUBE_CLIENT_SECRET=$YOUTUBE_CLIENT_SECRET
+          YOUTUBE_REFRESH_TOKEN=$YOUTUBE_REFRESH_TOKEN
+          DISCORD_WEBHOOK_URL=$DISCORD_WEBHOOK_URL
+          LLM_BACKEND=groq
+          AUTO_UPLOAD=true
+          MUSIC_ENABLED=false
+          EOF
+
+      - name: Validate configuration
+        run: python main.py --config
+
+      - name: Generate tutorial
+        run: |
+          if [ -z "${{ github.event.inputs.topic }}" ]; then
+            echo "🎲 Generating tutorial with random topic..."
+            python main.py --once
+          else
+            echo "🎯 Generating tutorial: ${{ github.event.inputs.topic }}"
+            python main.py --topic "${{ github.event.inputs.topic }}"
+          fi
+
+      - name: Upload artifacts (videos)
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: generated-videos
+          path: output/
+          retention-days: 7
+
+      - name: Send Discord notification (success)
+        if: success()
+        uses: tsickert/discord-webhook@v1
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          content: |
+            ✅ **Tutorial Generated Successfully!**
+            - Time: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+      - name: Send Discord notification (failure)
+        if: failure()
+        uses: tsickert/discord-webhook@v1
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          content: |
+            ❌ **Tutorial Generation Failed!**
+            - Check logs: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
