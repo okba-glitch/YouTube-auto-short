@@ -1,0 +1,17 @@
+# Core
+requests==2.31.0
+Pillow==10.2.0
+python-dotenv==1.0.0
+
+# Syntax highlighting للكود فالفيديو
+Pygments==2.17.2
+
+# TTS (Piper = مفتوح المصدر ومحلي بالكامل، gTTS = fallback)
+piper-tts==1.2.0
+gTTS==2.5.1
+
+# YouTube
+google-api-python-client==2.108.0
+google-auth==2.23.4
+google-auth-oauthlib==1.0.0
+google-auth-httplib2==0.1.1

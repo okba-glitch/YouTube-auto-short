@@ -1,0 +1,123 @@
+Understanding Python decorators
+JavaScript closures explained
+Building a REST API with FastAPI
+Async/await in JavaScript explained
+Python list comprehensions deep dive
+Understanding recursion with real examples
+Building a CLI tool in Python
+JavaScript promises vs async/await
+Python generators and yield explained
+Understanding Big O notation with code
+Building a simple web scraper in Python
+JavaScript array methods you should know
+Python context managers and the with statement
+Understanding REST vs GraphQL with examples
+Building a Discord bot in Python
+JavaScript event loop explained
+Python virtual environments explained
+Understanding Git branching strategies
+Building a simple chat app with WebSockets
+Python dataclasses vs regular classes
+JavaScript destructuring and spread operator
+Understanding SQL joins with examples
+Building a to-do app with React
+Python error handling best practices
+JavaScript modules: import vs require
+Understanding Docker basics for developers
+Building a simple neural network from scratch
+Python type hints explained
+JavaScript this keyword explained
+Understanding binary search with code
+Building a URL shortener backend
+Python multithreading vs multiprocessing
+JavaScript higher-order functions explained
+Understanding hash tables from scratch
+Building a simple blockchain in Python
+Python f-strings and string formatting
+JavaScript prototypal inheritance explained
+Understanding linked lists with code
+Building a weather app with an API
+Python unit testing with pytest
+JavaScript fetch API explained
+Understanding stacks and queues with code
+Building a simple game with Pygame
+Python regular expressions explained
+JavaScript classes vs functions
+Understanding dependency injection
+Building a login system with JWT
+Python decorators for caching
+JavaScript debounce and throttle explained
+Understanding Big Data with Python basics
+Building a simple compiler concept walkthrough
+Python asyncio explained with examples
+JavaScript DOM manipulation basics
+Understanding recursion vs iteration
+Building a REST client library
+Python pandas basics for data analysis
+JavaScript local storage vs session storage
+Understanding OAuth2 with a simple example
+Building a simple recommendation system
+Python list vs tuple vs set explained
+JavaScript arrow functions explained
+Understanding trees and binary trees with code
+Building a markdown parser in Python
+Python match statement explained
+JavaScript async generators explained
+Understanding CI/CD pipelines for beginners
+Building a simple cache with Python
+Python properties and getters/setters
+JavaScript web workers explained
+Understanding SOLID principles with code
+Building a rate limiter from scratch
+Python enums explained
+JavaScript typed arrays explained
+Understanding microservices vs monoliths
+Building a simple state machine
+Python abstract base classes explained
+JavaScript closures for private variables
+Understanding graph algorithms with code
+Building a command pattern example
+Python metaclasses explained simply
+JavaScript currying explained
+Understanding memoization with code
+Building a simple ORM from scratch
+Python walrus operator explained
+JavaScript async error handling
+Understanding CAP theorem with examples
+Building a simple pub/sub system
+Python itertools you should know
+JavaScript proxy objects explained
+Understanding sorting algorithms compared
+Building a simple LRU cache
+Python dunder methods explained
+JavaScript generators explained
+Understanding load balancing basics
+Building a websocket chat server
+Python typing with generics
+JavaScript template literals explained
+Understanding API rate limiting
+Building a simple task queue
+Python asyncio vs threading vs multiprocessing
+JavaScript object destructuring patterns
+Understanding database indexing
+Building a simple file uploader
+Python context variables explained
+JavaScript module bundlers explained
+Understanding functional programming basics
+Building a simple event emitter
+Python data validation with pydantic
+JavaScript optional chaining explained
+Understanding vector databases basics
+Building a simple search engine
+Python string interning explained
+JavaScript memory leaks explained
+Understanding CQRS pattern with code
+Building a retry mechanism with backoff
+Python collections module deep dive
+JavaScript strict mode explained
+Understanding idempotency in APIs
+Building a simple circuit breaker
+Python slots for memory optimization
+JavaScript iterators and iterables
+Understanding eventual consistency
+Building a simple observer pattern
